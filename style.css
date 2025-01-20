@@ -10,15 +10,15 @@
 }
 
 body, html {
-    background: #5b432b;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; 
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  background-color: #000; /* Optionnel, pour mieux voir les vidéos */
 }
+
 
 /* GLOBAL CSS CLASSES  */
 .align-element {
@@ -187,119 +187,80 @@ body, html {
 
 /* VIDEOS STYLE  */
 .videos {
-    position: absolute;
-    left: 50%;
-    top: 60px;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-
-.videos .video {
-    height: 100vh;
-    scroll-snap-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.videos .video .video-box {
-    width: auto; /* Taille automatique selon le contenu */
-    max-width: 100%; /* S'assurer que la vidéo ne dépasse pas l'écran */
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.videos .video .video-box .video-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.videos .video .video-box .video-info .video-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
-}
-
-.videos .video .video-box .video-info .video-section video {
-    max-height: 80vh; /* Ne pas dépasser la hauteur de l'écran */
-    max-width: 100%; /* Garder une bonne proportion selon l'écran */
-    border-radius: 10px;
-    object-fit: contain; /* Ajuster pour contenir toute la vidéo */
-}
-
-/* Style de base pour les vidéos */
-.videoContainer {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+/* Alignement des éléments à l'intérieur de la vidéo */
+.align-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Style de la vidéo avec son conteneur */
+.video {
+  width: 100%;
+  max-width: 800px; /* Limiter la largeur maximum des vidéos */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.video-box {
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%; /* Maintient le ratio 16:9 pour les vidéos */
+  height: 0;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .videoPlayer {
-  max-width: 100%;
-  max-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Assure que la vidéo garde ses proportions tout en remplissant l'espace */
+  display: block;
 }
 
-/* Pour les petits écrans (mobiles) */
+/* Icône de lecture centrée */
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 50px;
+  z-index: 10;
+  display: none; /* Cachée par défaut */
+}
+
+/* Montrer l'icône lorsque la vidéo est en pause */
+.videoPlayer.paused + .video-play-icon {
+  display: block;
+}
+
+/* Responsivité sur mobile */
 @media only screen and (max-width: 768px) {
   .videoPlayer {
-    width: 100%;
-    height: 100vh; /* Utilise toute la hauteur de l'écran sur mobile */
-    object-fit: cover; /* Recadrage de la vidéo si nécessaire */
+    height: 100vh; /* Utiliser toute la hauteur de l'écran sur mobile */
+    object-fit: cover;
   }
-}
-
-/* Pour les écrans mobiles, les vidéos prennent toute la hauteur du body */
-@media only screen and (max-width: 768px) {
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  .videoPlayer {
-    width: 100%;
-    height: 100vh; /* Prend 100% de la hauteur de l'écran */
-    object-fit: cover; /* Ajuste l'image en fonction de la taille de l'écran */
-  }
-}
-
-/* VIDEOS RESPONSIVE  */
-@media (max-width:900px) {
-    .videos {
-        left: 60px;
-    }
-
-    .videos .video .video-box {
-        margin: 0;
-        width: 100%;
-    }
-}
-
-@media (max-width:600px) {
-    .videos .video .video-box .video-desc {
-        position: absolute;
-        right: 5px;
-        bottom: 5px;
-    }
-
-    .videos .video .video-box .video-desc ul li span:first-child {
-        background: rgba(0, 0, 0, 0.5);
-    }
 }
