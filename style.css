@@ -351,13 +351,18 @@ body {
     }
 }
 
-/* VIDEOS STYLE  */
+
+/* VIDEOS STYLE */
 .videos {
     position: absolute;
     left: 15%;
     top: 60px;
     width: 85%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement les vidéos */
+    justify-content: center; /* Centre verticalement les vidéos */
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -367,22 +372,29 @@ body {
     height: 100vh;
     scroll-snap-align: center;
     display: flex;
+    align-items: center; /* Centre la vidéo dans le conteneur */
+    justify-content: center; /* Centre la vidéo dans le conteneur */
 }
 
 .videos .video .video-box {
-    height: 80%;
-    width: 380px;
-    margin-left: 240px;
+    height: auto; /* Ajuste automatiquement à la taille de la vidéo */
+    width: auto;  /* Ajuste automatiquement à la taille de la vidéo */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
     display: flex;
-    gap: 8px;
+    align-items: center; /* Aligne verticalement */
+    justify-content: center; /* Aligne horizontalement */
     position: relative;
 }
 
-.videos .video .video-box .video-info {
-    height: auto;
-    width: 100%;
-    position: relative;
+.videos .video .video-box .video-info .video-section video {
+    height: 80vh; /* Taille de la vidéo */
+    width: auto;  /* Ajuste automatiquement la largeur en fonction de la hauteur */
+    max-width: 100%; /* Empêche de dépasser la largeur du conteneur */
+    max-height: 100%; /* Empêche de dépasser la hauteur du conteneur */
+    border-radius: 10px;
+    object-fit: cover; /* Maintient les proportions de la vidéo */
 }
+
 
 .videos .video .video-box .video-info .video-section {
     position: relative;
