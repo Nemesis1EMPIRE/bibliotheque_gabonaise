@@ -183,7 +183,181 @@ body, html {
 }
 
 
+/* SIDEBAR STYLES  */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 14%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
 
+.sidebar::-webkit-scrollbar {
+    width: 7px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar ul {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.sidebar ul:last-child {
+    border: none;
+}
+
+.sidebar ul li {
+    list-style: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding: 7px 15px;
+    gap: 10px;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.sidebar ul li span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.sidebar ul li span i {
+    font-size: 18px;
+    color: #fff;
+}
+
+.sidebar ul li.active span,
+.sidebar ul li.active span i {
+    color: rgb(255, 59, 92);
+}
+
+.sidebar ul li .new {
+    position: relative;
+}
+
+.sidebar ul li .new span {
+    position: absolute;
+    height: 15px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    right: -35px;
+    top: 3px;
+    padding: 2px;
+    background: rgb(255, 59, 92);
+    color: #fff;
+    font-weight: 500;
+    font-size: 10px;
+}
+
+.sidebar ul li .channel-img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebar ul:first-child li .channel-img {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar ul h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a1a1;
+    padding: 7px 15px;
+}
+
+.sidebar ul li .channel-info h5 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: -8px;
+}
+
+.sidebar ul li .channel-info span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a1a1;
+}
+
+.sidebar .information {
+    padding: 10px 15px;
+}
+
+.sidebar .information li {
+    padding: 0;
+}
+
+.sidebar .information li a {
+    text-decoration: none;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a1a1;
+}
+
+.sidebar .information p {
+    font-size: 12px;
+    color: #a1a1a1;
+}
+
+.sidebar .information li:hover {
+    background-color: transparent;
+}
+
+.sidebar .information li:first-child {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.sidebar .information li:first-child span {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.sidebar .information li:first-child span i {
+    font-size: 28px;
+    color: gold;
+}
+
+/* SIDEBAR RESPONSIVE  */
+@media (max-width:1060px) {
+    .sidebar {
+        width: 50px;
+        border-right: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .sidebar ul li span:last-child,
+    .sidebar ul h4,
+    .sidebar .information li:first-child,
+    .sidebar ul li a,
+    .sidebar ul p {
+        display: none;
+    }
+}
 
 /* VIDEOS STYLE  */
 .videos {
