@@ -9,36 +9,70 @@ a{
     color: #5a5a5a;
 }
 .header-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #f1f1f1;
-}
-
-.trafic-title {
-    margin: 0;
-    font-size: 2em;
-    color: #333;
-}
-
-.search-bar {
-    display: flex;
-}
-
-.search-bar input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-}
-
-.search-bar button {
-    padding: 8px 12px;
-    background-color: #ddd;
-    border: 1px solid #ddd;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .trafic-title {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Barre de recherche améliorée */
+        .search-container {
+            position: relative;
+            width: 400px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: translateY(-50%) scale(1.05);
+        }
 img{
     cursor: pointer; 
 }
